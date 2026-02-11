@@ -6,8 +6,16 @@ from ultralytics import YOLOWorld
 os.environ['QT_QPA_FONTDIR'] = '/usr/share/fonts'
 
 def main():
-    # Load a YOLO-World model (v8s-world is a good balance of speed/accuracy)
-    model = YOLOWorld('yolov8s-world.pt')
+    # --- MODEL CONFIGURATION ---
+    # Choose your model size based on your hardware:
+    # 'yolov8s-worldv2.pt' -> Small (Fastest)
+    # 'yolov8m-worldv2.pt' -> Medium
+    # 'yolov8l-worldv2.pt' -> Large (Better accuracy)
+    # 'yolov8x-worldv2.pt' -> Extra Large (Best accuracy, slowest)
+    model_size = 'yolov8l-worldv2.pt' 
+    
+    # Load the selected YOLO-World model
+    model = YOLOWorld(model_size)
 
     # Define the specific objects you want to detect (e.g., "pen")
     # You can change this list to detect whatever you want!
